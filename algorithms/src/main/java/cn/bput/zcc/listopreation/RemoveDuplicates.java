@@ -22,4 +22,24 @@ public class RemoveDuplicates {
         nums[j]=nums[nums.length-1];
         return len;
     }
+    public int removeDuplicates2(int[] nums){
+        int len = nums.length;
+        if (len==0) return 0;
+        int fast;
+        int slow = 1;
+        int count = 0;
+        for (fast=1; fast<len;fast++){
+            if (nums[fast]==nums[slow-1]){
+                count++;
+                if(count>=2){
+                    continue;
+                }
+            }else {
+                count=0;
+            }
+            nums[slow] = nums[fast];
+            slow++;
+        }
+        return slow;
+    }
 }
