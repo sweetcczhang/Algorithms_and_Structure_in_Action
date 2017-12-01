@@ -63,4 +63,35 @@ public class ThreeSum {
             }
         }
     }
+    public int threeSumClosest(int[] numbers, int target) {
+        // write your code here
+         bubbleSort(numbers);
+        int min = Integer.MAX_VALUE;
+        int result = 0;
+        for(int i=0; i<numbers.length;i++){
+            int left = i+1;
+            int right = numbers.length-1;
+            while (left<right){
+                int sum = numbers[i]+numbers[left]+numbers[right];
+                if (sum==target)return target;
+                if(sum>target){
+                    int temp = sum-target;
+                    if(temp<min){
+                        min = temp;
+                        result=sum;
+                    }
+                    right--;
+                }else {
+                    int temp = target-sum;
+                    if(temp<min){
+                        min = temp;
+                        result = sum;
+                    }
+                    left++;
+                }
+            }
+        }
+        return result;
+    }
+
 }
