@@ -6,6 +6,10 @@ package cn.bput.zcc.DynamicProgramming;
 public class BackPackII {
 
     /**
+     * 问题描述：给出n个物品的体积A[i]和其价值V[i]，将他们装入一个大小为m的背包，
+     * 最多能装入的总价值有多大？
+     */
+    /**
      *动态规划，和上一题很类似的状态转移方程：
      * f[i][j]表示前i个商品在j的空间时候能够获
      * 得最大的价值状态转移方程：不放第i个商品

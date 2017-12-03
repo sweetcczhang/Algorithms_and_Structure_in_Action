@@ -11,7 +11,7 @@ public class MaxSubArray {
     public int maxSubArray(int[] nums){
         int max_ending_here = nums[0];
         int max_so_far = nums[0];
-        for(int i=0;i<nums.length;i++){
+        for(int i=1;i<nums.length;i++){
             max_ending_here = Math.max(nums[i], nums[i]+max_ending_here);
             max_so_far = Math.max(max_ending_here, max_so_far);
         }
