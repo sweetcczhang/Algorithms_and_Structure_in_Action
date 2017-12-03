@@ -4,6 +4,13 @@ package cn.bput.zcc.listopreation;
  * Created by 张城城 on 2017/12/3.
  */
 public class MaxDiffSubArrays45 {
+    /**
+     * 题目：
+     * 给定一个整数数组，找出两个不重叠的子数组A和B，
+     * 使两个子数组和的差的绝对值|SUM(A) - SUM(B)|最大。
+     * @param nums
+     * @return
+     */
     public static int maxDiffSubArrays(int[] nums) {
         // write your code here
         int size = nums.length;
@@ -19,7 +26,6 @@ public class MaxDiffSubArrays45 {
         int [] leftMin = new int[size];
         int[] rightMax = new int[size];
         int[] rightMin = new int[size];
-
         for(int i=0;i<size;i++){
             localMax = Math.max(nums[i],localMax+nums[i]);
             globalMax = Math.max(localMax, globalMax);
@@ -41,7 +47,6 @@ public class MaxDiffSubArrays45 {
             globalMin = Math.min(globalMin, localMin);
             rightMin[i] = globalMin;
         }
-
         for(int i=0; i<size-1;i++){
             max = Math.max(rightMax[i+1]-leftMin[i],max);
             max = Math.max(leftMax[i]-rightMin[i+1],max);
