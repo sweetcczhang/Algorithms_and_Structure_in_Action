@@ -64,6 +64,27 @@ public class LongestIncreasingSubsequence76 {
         return left;
     }
 
+    /**
+     * 简单粗暴的解决方法。
+     * 以后做题先不要着急找答案，首先用自己的简单粗暴的方法把问题解决出来
+     * @param nums
+     * @return
+     */
+    public int longestIncreasingSubsequence2(int[] nums){
+        int [] subLongest = new int[nums.length];
+        int max = 0;
+        for(int i=0;i<nums.length;i++){
+            int sublong = 0;
+            for(int j=0;j<i;j++){
+                if(nums[j]<nums[i]){
+                    sublong = Math.max(sublong,subLongest[j]);
+                }
+            }
+            subLongest[i] = sublong+1;
+            max = Math.max(max,subLongest[i]);
+        }
+        return max;
+    }
 
 
     public static void main(String[] args){
