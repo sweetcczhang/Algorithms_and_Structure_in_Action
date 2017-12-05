@@ -41,4 +41,24 @@ public class CanJump116 {
         }
         return true;
     }
+
+    /**
+     * 动态规划求解跳跃游戏
+     * @param A
+     * @return
+     */
+    public boolean canJump3(int[] A){
+        if(A.length==1) return true;
+        boolean[] flags = new boolean[A.length];
+        flags[0] = true;
+        for(int i=1;i<A.length;i++){
+            for (int j=0;j<i;j++){
+                if(flags[i]==true)
+                    break;
+                flags[i] = (flags[j]&&(j+A[j]>=i));
+            }
+
+        }
+        return flags[A.length-1];
+    }
 }
