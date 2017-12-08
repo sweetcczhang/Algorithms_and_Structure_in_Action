@@ -226,7 +226,4 @@ public class MatrixUDG {
         pG.DFS();
         pG.BFS();
     }
-
-
-
 }
