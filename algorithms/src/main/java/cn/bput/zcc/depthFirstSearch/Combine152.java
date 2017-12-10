@@ -7,7 +7,17 @@ import java.util.List;
  * Created by 张城城 on 2017/12/10.
  */
 public class Combine152 {
-
+    /**
+     * 题目：组合
+     * 描述：
+     * 组给出两个整数n和k，返回从1......n中选出的k个数的组合。
+     *
+     * 解题思路：
+     * 深度优先遍历
+     * @param n
+     * @param k
+     * @return
+     */
     public List<List<Integer>> combine(int n, int k){
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         List<Integer> list = new ArrayList<Integer>();
