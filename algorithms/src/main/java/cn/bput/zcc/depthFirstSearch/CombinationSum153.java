@@ -10,6 +10,14 @@ import java.util.List;
  * Created by 张城城 on 2017/12/10.
  */
 public class CombinationSum153 {
+    /**
+     * 题目：数字组合 II
+     * 描述：给出一组候选数字(C)和目标数字(T),找出C中所有的组合，
+     * 使组合中数字的和为T。C中每个数字在每个组合中只能使用一次。
+     * @param nums
+     * @param target
+     * @return
+     */
     public List<List<Integer>> combinationSum2(int[] nums, int target){
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         List<Integer> list = new ArrayList<Integer>();
