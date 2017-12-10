@@ -1,9 +1,13 @@
 package cn.bput.zcc.listopreation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by 张城城 on 2017/12/9.
  */
 public class LongestCommonPrefix78 {
+
     public String longestCommonPrefix(String[] strs) {
         // write your code here
         if(strs ==null || strs.length==0) return "";
