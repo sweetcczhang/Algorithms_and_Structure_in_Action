@@ -40,6 +40,12 @@ public class FirstMissingPositive189 {
         return B[B.length-1]+1;
     }
 
+    /**
+     * 本方法的解题思路是寻找缺失的数。让排序后的数组有如下规律A[i]=i+1;
+     * 第一个不满足这个规律便是答案~如果全部满足则为n+1
+     * @param A
+     * @return
+     */
     public int firstMissingPositive2(int [] A){
         if(A.length==0) return 1;
         int n = A.length;
