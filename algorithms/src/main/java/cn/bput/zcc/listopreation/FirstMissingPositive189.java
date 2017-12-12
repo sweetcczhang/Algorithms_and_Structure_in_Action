@@ -39,4 +39,24 @@ public class FirstMissingPositive189 {
 
         return B[B.length-1]+1;
     }
+
+    public int firstMissingPositive2(int [] A){
+        if(A.length==0) return 1;
+        int n = A.length;
+        for(int i=0; i<n; i++){
+            int digit = A[i];
+            while (digit>0&&digit<=n&&A[digit-1]!=digit){
+                int tmp = A[i];
+                A[i] = A[digit-1];
+                A[digit-1] = tmp;
+                digit=A[i];
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(A[i] != i+1)
+                return i+1;
+        }
+        return n+1;
+    }
+
 }
