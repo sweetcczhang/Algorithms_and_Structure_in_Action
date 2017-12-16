@@ -7,6 +7,11 @@ import java.util.List;
  * Created by 张城城 on 2017/12/16.
  */
 public class SpiralOrder374 {
+    /**
+     *
+     * @param matrix
+     * @return
+     */
     public static List<Integer> spiralOrder(int[][] matrix) {
         // write your code here
         List<Integer> result = new ArrayList<Integer>();
