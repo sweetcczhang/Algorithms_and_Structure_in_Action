@@ -10,8 +10,11 @@ public class MinNumber379 {
         if(nums==null || nums.length==0) return "0";
         quick(nums,0,nums.length-1);
         for(int i=0;i<nums.length;i++){
+            if(result.toString().length()==0 && nums[i]==0) continue;
             result.append(String.valueOf(nums[i]));
         }
+        if(result.toString().length()==0)
+            return "0";
         return result.toString();
     }
 
