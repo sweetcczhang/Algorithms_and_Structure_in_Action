@@ -4,6 +4,15 @@ package cn.bput.zcc.listopreation;
  * Created by 张城城 on 2017/12/16.
  */
 public class MinNumber379 {
+    /**
+     * 题目：将数组重新排序以构造最小值
+     * 描述：
+     * 给定一个整数数组，请将其重新排序，以构造最小值。
+     * 思路：本题的本质也是数组排序问题，其主要的思路是对数组大小的重新定义。即：
+     * (s1+s2)与(s2+s1)的大小，即如前者小于后者则s1<s2,否则s1>s2,其中s1与s2是整数转换的字符串。
+     * @param nums
+     * @return
+     */
     public String minNumber(int[] nums) {
         // write your code here
         StringBuilder result = new StringBuilder();
