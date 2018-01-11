@@ -14,6 +14,54 @@ public class TreeNode {
         this.right=this.left=null;
     }
 
+
+
+
+    public static List<List<Integer>> zigzagLevelOrder(TreeNode root){
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        Stack<TreeNode> stackleft = new Stack<TreeNode>();
+        Stack<TreeNode> stackright = new Stack<TreeNode>();
+        if(root==null) return result;
+        int i = 0;
+        stackleft.push(root);
+        while (!stackleft.isEmpty() || !stackright.isEmpty()){
+            int flag = i % 2;
+            List<Integer> list = new ArrayList<Integer>();
+            if(flag==0){
+                int size = stackleft.size();
+                while(size>0){
+                    TreeNode treeNode = stackleft.pop();
+                    list.add(treeNode.val);
+                    if(treeNode.left!=null){
+                        stackright.push(treeNode.left);
+                    }
+                    if (treeNode.right!=null){
+                        stackright.push(treeNode.right);
+                    }
+                    size--;
+                }
+            }else {
+                int size = stackright.size();
+                while (size>0){
+                    TreeNode treeNode = stackright.pop();
+                    list.add(treeNode.val);
+                    if(treeNode.right!=null){
+                        stackleft.push(treeNode.right);
+                    }
+                    if(treeNode.left!=null){
+                        stackleft.push(treeNode.left);
+                    }
+                    size--;
+                }
+            }
+            i++;
+            result.add(list);
+
+        }
+
+        return result;
+    }
+
     /**
      * 二叉树的层次遍历
      * 倒序输出每一层
@@ -81,8 +129,16 @@ public class TreeNode {
         TreeNode treeNode = new TreeNode(1);
         TreeNode node = new TreeNode(2);
         TreeNode node1 = new TreeNode(3);
+        TreeNode node2 = new TreeNode(4);
+        TreeNode node3 = new TreeNode(5);
+        TreeNode node4 = new TreeNode(6);
+        TreeNode node5 = new TreeNode(7);
         treeNode.left = node;
         treeNode.right = node1;
-        leverOrder(treeNode);
+        node.left =node2;
+        node.right = node3;
+        node1.left = node4;
+        node1.right = node5;
+        zigzagLevelOrder(treeNode);
     }
 }
