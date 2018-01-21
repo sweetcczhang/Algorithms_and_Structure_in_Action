@@ -17,10 +17,16 @@ public class ExpressionExpand575 {
                 stack.push(number+"");
                 number=0;
             }else if(c==']'){
-
+                String copy = popStack(stack);
+                int count = Integer.valueOf(stack.pop());
+                for(int i=0;i<count;i++){
+                    stack.push(copy);
+                }
+            }else {
+                stack.push(c+"");
             }
         }
-        return null;
+        return popStack(stack);
 
     }
     public String popStack(Stack<String> stack){
