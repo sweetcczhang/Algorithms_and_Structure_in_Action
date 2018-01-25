@@ -1,9 +1,13 @@
 package cn.bput.zcc.linkListOperation;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by 张城城 on 2018/1/24.
  */
 public class DetectCycle103 {
+    public Map map = new HashMap();
     /**
      *
      * @param head
