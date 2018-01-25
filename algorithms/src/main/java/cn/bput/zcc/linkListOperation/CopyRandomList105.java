@@ -8,7 +8,8 @@ public class CopyRandomList105 {
      * 题目：复制带随机指针的链表
      * 描述：给出一个链表，每个节点包含一个额外增加的随机指针可以指向链表中的任何节点或空的节点
      * 返回一个深拷贝的指针~
-     * 解题思路：http://www.cppblog.com/yuech/archive/2011/04/02/143318.html
+     * 解题思路：主要是把新链表和旧链表链接起来，通过把新旧链表链接起来来复制random指针。
+     * http://www.cppblog.com/yuech/archive/2011/04/02/143318.html
      * @param head
      * @return
      */
