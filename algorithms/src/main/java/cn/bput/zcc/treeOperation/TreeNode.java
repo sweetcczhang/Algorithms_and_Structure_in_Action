@@ -1,0 +1,13 @@
+package cn.bput.zcc.treeOperation;
+
+/**
+ * Created by 张城城 on 2018/1/25.
+ */
+public class TreeNode {
+    int val;
+    TreeNode left, right;
+    TreeNode(int val){
+        this.val = val;
+        this.left = this.right = null;
+    }
+}
