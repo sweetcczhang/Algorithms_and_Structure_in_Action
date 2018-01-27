@@ -21,35 +21,25 @@ public class AddLists167 {
             l1=l1.next;
             l2=l2.next;
         }
+        ListNode result = null;
         if(l1!=null){
-            while(l1!=null && flag>0){
-                int val = l1.val+flag;
-                int value = val%10;
-                flag=val/10;
-                l1.val = value;
-                head.next=l1;
-                l1=l1.next;
-                head = head.next;
-            }
-            if(l1!=null){
-                head.next=l1;
-            }
+            result =l1;
         }
-        else if(l2!=null){
-            while(l2!=null && flag>0){
-                int val = l2.val+flag;
-                int value = val%10;
-                flag = val/10;
-                l2.val = value;
-                head.next=l2;
-                l2 = l2.next;
-                head = head.next;
-            }
-
-            if(l2!=null){
-                head.next = l2;
-            }
+        if(l2!=null){
+            result = l2;
         }
+        while(result!=null && flag>0){
+            int val = result.val+flag;
+            int value = val%10;
+            flag=val/10;
+            result.val = value;
+            head.next=result;
+            result=result.next;
+            head = head.next;
+        }
+            if(result!=null){
+                head.next=result;
+            }
         if(flag>0){
             ListNode node1 = new ListNode(flag);
             head.next = node1;
