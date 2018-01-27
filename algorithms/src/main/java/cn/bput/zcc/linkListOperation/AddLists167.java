@@ -4,6 +4,14 @@ package cn.bput.zcc.linkListOperation;
  * Created by 张城城 on 2018/1/27.
  */
 public class AddLists167 {
+    /**
+     * 由于没有现在链表的长度，所以不能使用简便方法，先把两个链表转换成字符串
+     * 然后相加之后再转换成链表。这样转换的整数会溢出超出java能表示的最大范围
+     * 的整数
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode addLists(ListNode l1, ListNode l2){
         if(l1==null&&l2==null) return null;
         if(l1 ==null) return l2;
