@@ -172,7 +172,7 @@ public class SortingAlgorithms {
             if(child<len-1 && nums[child]< nums[child+1]){
                 child++;
             }
-            //如果较大的子节点大于父节点那么吧较大的子节点往上移动，替换它的父节点
+            //如果较大的子节点大于父节点那么把较大的子节点往上移动，替换它的父节点
             if(nums[i]<nums[child]){
                 temp = nums[i];
                 nums[i] = nums[child];
