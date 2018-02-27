@@ -18,6 +18,15 @@ public class MergeKLists104 {
         }
         return node;
     }
+    public ListNode kMergeSort(List<ListNode> lists, int start,int end){
+        if(start>=end){
+            return lists.get(start);
+        }
+        int mid = (end-start)/2+start;
+        ListNode left = kMergeSort(lists, start, mid);
+        ListNode right = kMergeSort(lists, mid+1,end);
+        return merge(left,right);
+    }
     public ListNode merge(ListNode left, ListNode right){
         if(left ==null && right==null) return null;
         if(left ==null) return right;
