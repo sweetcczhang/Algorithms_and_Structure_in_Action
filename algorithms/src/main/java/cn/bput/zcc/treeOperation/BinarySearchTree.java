@@ -22,7 +22,7 @@ public class BinarySearchTree {
      */
     public TreeNode search(int val){
         TreeNode current = root;
-        while (current!=null && current.val==val){
+        while (current!=null && current.val!=val){
             if(current.val<val){
                 current=current.left;
             }else if(current.val>val){

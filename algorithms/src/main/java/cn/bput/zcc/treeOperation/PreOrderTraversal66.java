@@ -28,7 +28,6 @@ public class PreOrderTraversal66 {
             result.add(root.val);
             preOrder(root.right, result);
 
-
         }
     }
 
