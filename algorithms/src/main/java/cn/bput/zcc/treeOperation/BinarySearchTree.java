@@ -58,6 +58,19 @@ public class BinarySearchTree {
         }
     }
 
+    /**
+     * 二叉查找树删除的时候分为四种情况：
+     * 1. 删除的节点为叶子节点。若该叶子节点为根节点，则把根节点设置为空。
+     * 若不是根节点则把该节点设置为空~
+     * 2. 删除的节点没有左孩子节点。若该节点为根节点则 root = current.right.
+     * 若不是根节点，则该用右孩子来代替删除的节点
+     * 3. 删除的节点没有右孩子。若该节点为根节点则 root = current.left。
+     * 若不是根节点，则用左孩子来代替删除的节点。
+     * 4. 若删除的节点既有左孩子又有右孩子节点。则使用该删除节点的右子树的小节点或者
+     * 左子树最大节点来代替该节点。
+     * @param val
+     * @return
+     */
     public TreeNode delete(int val){
         TreeNode parent = root;
         TreeNode current = root;
@@ -115,15 +128,15 @@ public class BinarySearchTree {
     }
     public TreeNode getDeleteSuccessor(TreeNode deleteNode){
         TreeNode successor = null;
-        //TreeNode successorParent = null;
+        TreeNode successorParent = null;
         TreeNode current = deleteNode.right;
         while (current!=null){
-            //successorParent = successor;
+            successorParent = successor;
             successor = current;
             current = current.left;
         }
         if(successor!=deleteNode.right){
-            //successorParent.left = successor.left;
+            successorParent.left = successor.right;
             successor.right = deleteNode.right;
         }
         return successor;
