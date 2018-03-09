@@ -5,7 +5,13 @@ package cn.bput.zcc.DynamicProgramming;
  */
 public class NumDistinct118 {
     /**
-     * Ø r a b b b i t
+     * 动态规划的题目首先定义出需要：在动态规划算法中需要使用的数组。
+     * 然后使用一个示例来推演出地推公式
+     * 解题方法：动态规划
+     * 解题思路：
+     * 使用二维数组dp[i][j]表示字符串T的前i个在字符串的前j个中出现的次数。
+     *
+     * * Ø r a b b b i t
      * Ø 1 1 1 1 1 1 1 1
      * r 0 1 1 1 1 1 1 1
      * a 0 0 1 1 1 1 1 1
@@ -13,10 +19,6 @@ public class NumDistinct118 {
      * b 0 0 0 0 1 3 3 3
      * i 0 0 0 0 0 0 3 3
      * t 0 0 0 0 0 0 0 3
-     * 解题方法：动态规划
-     * 解题思路：
-     * 使用二维数组dp[i][j]表示字符串T的前i个在字符串的前j个中出现的次数。
-     *
      * @param S
      * @param T
      * @return
