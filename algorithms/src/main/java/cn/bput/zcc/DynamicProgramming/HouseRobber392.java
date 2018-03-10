@@ -1,7 +1,7 @@
 package cn.bput.zcc.DynamicProgramming;
 
 public class HouseRobber392 {
-    public  long houseRobber(int[] A){
+    public  long houseRobber1(int[] A){
         if(A==null || A.length==0) return 0;
         if(A.length ==1) return A[0];
         if(A.length ==2 ) return Math.max(A[0],A[1]);
@@ -15,5 +15,10 @@ public class HouseRobber392 {
             max2 = max3;
         }
         return Math.max(max1,max2);
+    }
+    public int houseRobber2(int[] nums){
+        
+
+        return 0;
     }
 }
