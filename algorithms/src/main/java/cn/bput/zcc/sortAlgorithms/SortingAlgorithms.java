@@ -143,7 +143,7 @@ public class SortingAlgorithms {
             temp[k++] = nums[j++];
         }
         for(i=0, j=start; j<=end; i++,j++){
-            nums[i+start] = temp[j];
+            nums[i+start] = temp[i];
         }
 
     }
