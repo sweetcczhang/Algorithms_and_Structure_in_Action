@@ -1,11 +1,15 @@
 package cn.bput.zcc.treeOperation;
 
+import java.util.Stack;
+
 /**
  * Created by 张城城 on 2018/3/1.
  */
 public class BuildTree73 {
     public TreeNode buildTree(int[] preorder, int[] inorder){
         TreeNode root= build(preorder,0, preorder.length-1,inorder,0,inorder.length-1);
+        Stack<Integer> stack1 = new Stack<Integer>();
+
         return root;
     }
     public TreeNode build(int[]preorder,int left, int right,int[] inorder,int start, int end){
@@ -26,4 +30,5 @@ public class BuildTree73 {
         }
         return -1;
     }
+
 }
