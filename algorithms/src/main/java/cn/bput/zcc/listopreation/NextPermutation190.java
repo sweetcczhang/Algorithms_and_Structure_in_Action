@@ -30,7 +30,7 @@ public class NextPermutation190 {
         Arrays.sort(nums);
     }
     public static void main(String[] args){
-        int[] a ={1,3,2};
+        int[] a ={5,1,4,3,2};
         nextPermutation(a);
     }
 }

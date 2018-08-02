@@ -4,6 +4,12 @@ package cn.bput.zcc.listopreation;
  * Created by 张城城 on 2018/3/28.
  */
 public class Str13 {
+    /**
+     * kMP算法
+     * @param source
+     * @param target
+     * @return
+     */
     public int strStr(String source, String target) {
         // write your code here
         if(source.length()==0) return -1;

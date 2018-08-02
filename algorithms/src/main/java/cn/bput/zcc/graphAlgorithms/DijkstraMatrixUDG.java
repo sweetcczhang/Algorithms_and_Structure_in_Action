@@ -155,6 +155,7 @@ public class DijkstraMatrixUDG {
             }
         }
     }
+
     public void BFS(){
         int head =0;
         int rear=0;
@@ -190,6 +191,38 @@ public class DijkstraMatrixUDG {
      *     prev -- 前驱顶点数组。即，prev[i]的值是"顶点vs"到"顶点i"的最短路径所经历的全部顶点中，位于"顶点i"之前的那个顶点。
      *     dist -- 长度数组。即，dist[i]是"顶点vs"到"顶点i"的最短路径的长度。
      */
+    public void dijkstra1(int vs, int[] prev, int[] dist){
+        boolean[] flag =new  boolean[mVexs.length];
+        for (int i=0;i<mVexs.length;i++){
+            flag[i]=false;
+            dist[i] = mMtrix[vs][i];
+            prev[i]=0;
+        }
+        flag[vs] = true;
+        dist[vs] = 0;
+
+        int k=0;
+        for (int i=0;i<mVexs.length;i++){
+            int min = INF;
+            for (int j=0;j<mVexs.length;j++){
+                if(flag[i]==false && min<dist[j]){
+                    min = dist[j];
+                    k=j;
+                }
+            }
+            flag[k]=true;
+            for (int j=0;j<mVexs.length;j++){
+                int temp = mMtrix[k][j]==INF ? INF : (dist[k]+mMtrix[k][j]);
+                if(flag[j]==false && temp<dist[j]){
+                    dist[j]=temp;
+                    prev[j]=k;
+                }
+            }
+        }
+        System.out.printf("dijkstra(%c): \n", mVexs[vs]);
+        for (int i=0; i < mVexs.length; i++)
+            System.out.printf("  shortest(%c, %c)=%d\n", mVexs[vs], mVexs[i], dist[i]);
+    }
     public void dijkstra(int vs, int[] prev, int[] dist){
         // flag[i]=true表示"顶点vs"到"顶点i"的最短路径已成功获取
         boolean[] flag = new boolean[mVexs.length];
@@ -238,6 +271,26 @@ public class DijkstraMatrixUDG {
      *     path -- 路径。path[i][j]=k表示，"顶点i"到"顶点j"的最短路径会经过顶点k。
      *     dist -- 长度数组。即，dist[i][j]=sum表示，"顶点i"到"顶点j"的最短路径的长度是sum。
      */
+    public void floyd1(int[][] path, int[][] dist){
+        for (int i=0;i<mVexs.length;i++){
+            for (int j=0;j<mVexs.length;j++){
+                dist[i][j] = mMtrix[i][j];
+                path[i][j]=j;
+            }
+        }
+
+        for (int k=0;k<mVexs.length;k++){
+            for (int i=0;i<mVexs.length;i++){
+                for (int j=0;j<mVexs.length;j++){
+                    int temp = (dist[i][k]==INF || dist[k][j]==INF) ? INF : (dist[i][k]+dist[k][j]);
+                    if(temp<dist[i][j]){
+                        dist[i][j]= temp;
+                        path[i][j] =k;
+                    }
+                }
+            }
+        }
+    }
     public void floyd(int[][] path, int[][] dist){
         // 初始化
         for (int i = 0; i < mVexs.length; i++) {

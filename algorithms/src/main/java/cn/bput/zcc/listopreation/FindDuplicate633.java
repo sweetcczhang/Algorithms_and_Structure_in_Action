@@ -30,6 +30,11 @@ public class FindDuplicate633 {
         return slow;
     }
 
+   public int findDuplicate2(int[] nums){
+
+       return 0;
+   }
+
     /**
      * 二分查找（Binary Search）+ 鸽笼原理（Pigeonhole Principle）
      *

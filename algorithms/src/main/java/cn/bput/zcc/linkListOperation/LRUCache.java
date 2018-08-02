@@ -41,7 +41,7 @@ public class LRUCache {
      */
     public void set(int key, int value) {
         // write your code here
-        if(get(key)==-1) {
+        if(get(key)!=-1) {
             data.get(key).value =value;
             return;
         }

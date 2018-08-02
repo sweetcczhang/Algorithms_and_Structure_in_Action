@@ -1,0 +1,27 @@
+package cn.bput.zcc.leetcode;
+
+/**
+ * Created by 张城城 on 2018/4/15.
+ */
+public class Multiply43 {
+    public String multiply(String num1,String num2){
+        int n = num1.length();
+        int m = num2.length();
+        int[] pos = new int[m+n];
+        for (int i=m-1;i>=0;i--){
+            for (int j=n-1;i>=0;j--){
+                int mul = (num2.charAt(i)-'0')*(num1.charAt(j)-'0');
+                int p1 = i+j;
+                int p2 = i+j+1;
+                int sum = mul + pos[p2];
+                pos[p1] += sum/10;
+                pos[p2] =(sum)%10;
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int p :pos){
+            if(!(sb.length()==0 && p==0)) sb.append(p);
+        }
+        return sb.length()==0 ? "0" : sb.toString();
+    }
+}

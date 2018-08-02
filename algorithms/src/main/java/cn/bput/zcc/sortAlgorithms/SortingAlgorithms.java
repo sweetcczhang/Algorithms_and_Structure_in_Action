@@ -57,6 +57,7 @@ public class SortingAlgorithms {
      * 无序的元素插入到有序部分，直到所有元素有序。插入排序又分为直接插入排序、二
      * 分插入排序、链表插入等，这里只讨论直接插入排序。它是稳定的排序算法，时间复
      * 杂度为O(n^2)
+     * 最好情况下的时间复杂度是O(n)
      * @param nums
      */
     public void insertSort(int[] nums){
@@ -203,5 +204,38 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     * 希尔排序
+     * @param nums
+     */
+    public static void shell_sort(int[] nums){
+        int gap =1, i, j, len = nums.length;
+        int temp;
+        while (gap < len/3){
+            gap = gap*3+1;
+        }
+        for (;gap>0;gap = gap/3){
+            for (i=gap;i<len;i++){
+                temp = nums[i];
+                for (j=i-gap;j>=0 && nums[j]>temp;j-=gap){
+                    nums[j+gap] =nums[j];
+                }
+                nums[j+gap]=temp;
+                print(nums);
+            }
+        }
+    }
+    public static void print(int[] data) {
+        for (int i = 0; i < data.length; i++) {
+            System.out.print(data[i] + "\t");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args){
+        int[] data = new int[] { 5, 3, 6, 2, 1, 9, 4, 8, 7 };
+        shell_sort(data);
+        print(data);
+    }
 
 }

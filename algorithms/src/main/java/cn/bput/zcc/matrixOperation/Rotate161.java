@@ -19,10 +19,9 @@ public class Rotate161 {
         for (int i=0; i<row; i++){
             for(int j =0;j<row-i-1;j++){
                 int temp = matrix[i][j];
-                matrix[i][j] = matrix[row-j-1][row-i-1];
-                matrix[row-j-1][row-i-1] = temp;
+                matrix[i][j] = matrix[col-j-1][col-i-1];
+                matrix[col-j-1][col-i-1] = temp;
             }
         }
-
     }
 }

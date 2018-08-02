@@ -42,4 +42,36 @@ public class CopyRandomList105 {
         }
         return result;
     }
+    public RandomListNode Clone(RandomListNode pHead)
+    {
+        if(pHead==null) return null;
+        RandomListNode newHead = pHead;
+        while(newHead!=null){
+            RandomListNode node = new RandomListNode(newHead.label);
+            RandomListNode temp = newHead.next ;
+            node.next=newHead.next;
+            newHead.next = node;
+            newHead = temp;
+        }
+        newHead = pHead;
+        while(newHead!=null){
+            if(newHead.random!=null){
+                newHead.next.random = newHead.random.next;
+            }else{
+                newHead.next.random=null;
+            }
+            newHead = newHead.next.next;
+        }
+
+        RandomListNode head = pHead.next;
+        RandomListNode result = pHead.next;
+        newHead=pHead;
+        while(head.next!=null){
+            newHead.next = head.next;
+            newHead = newHead.next;
+            head.next=newHead.next;
+            head = head.next;
+        }
+        return result;
+    }
 }
