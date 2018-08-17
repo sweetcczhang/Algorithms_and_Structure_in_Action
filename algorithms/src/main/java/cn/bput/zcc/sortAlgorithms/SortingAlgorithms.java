@@ -1,5 +1,7 @@
 package cn.bput.zcc.sortAlgorithms;
 
+import java.util.PriorityQueue;
+
 /**
  * Created by 张城城 on 2017/11/17.
  */
@@ -105,6 +107,49 @@ public class SortingAlgorithms {
             quickSort(nums,left, i-1);
             quickSort(nums, i+1, right);
         }
+    }
+
+    public int partition(int[] data, int left, int right) throws Exception {
+        if(left>=right) throw new Exception();
+
+        int i = left, j=right, target = data[left];
+        while (i<j){
+            while (i<j && data[j]>target){
+                j--;
+            }
+            if (i<j){
+                data[i++] = data[j];
+            }
+            while (i<j && data[i]<target){
+                i++;
+            }
+            if (i<j){
+                data[j] = data[i];
+                j--;
+            }
+        }
+        data[i] = target;
+        return i;
+    }
+
+    /**
+     * 查找数组中第k大的数
+     * @param data
+     * @param left
+     * @param right
+     * @param k
+     * @return
+     * @throws Exception
+     */
+    public int find(int[] data,int left, int right, int k) throws Exception {
+        int i = partition(data,left, right);
+        if (i+1==k) return data[i];
+        else if (i+1<k){
+            return find(data,i+1,right,k);
+        }else if (i+1>k){
+            return find(data,left,i-1, k);
+        }
+        return -1;
     }
 
     /**

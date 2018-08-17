@@ -38,4 +38,6 @@ public class Solution {
             System.out.print(solution.FirstAppearingOnce());
         }
     }
+
+
 }
